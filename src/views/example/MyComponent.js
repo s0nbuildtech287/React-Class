@@ -1,57 +1,34 @@
 import React from 'react';
+import ChildComponent from './ChildComponent';
+import AddComponent from './AddComponent';
 
 class MyComponent extends React.Component {
   state = {
-    firstName: '',
-    lastName: '',
+    name: '',
+    age: '',
+    address: '',
+    arrJobs: [
+      { id: 'job1', title: 'Developer', salary: '500' },
+      { id: 'job2', title: 'Tester', salary: '400' },
+      { id: 'job3', title: 'Project', salary: '1000' },
+    ],
   };
-  handleChangeFirstName = (event) => {
-    this.setState({ firstName: event.target.value });
-  };
-  handleChangeLastName = (event) => {
-    this.setState({ lastName: event.target.value });
-  };
-  handleSubmit = (event) => {
-    event.preventDefault();
-    alert(
-      `First Name: ${this.state.firstName} - Last Name: ${this.state.lastName}`
-    );
+
+  updateField = (field, value) => {
+    this.setState({ [field]: value });
   };
 
   render() {
     return (
-      console.log('Call render', this.state),
-      (
-        <div className="my-component">
-          <form>
-            <label for="fname">First name :</label>
-            <br />
-            <input
-              type="text"
-              value={this.state.firstName}
-              onChange={(event) =>
-                this.handleChangeFirstName(event)
-              }
-            />
-            <br />
-            <label for="lname">Last name :</label>
-            <br />
-            <input
-              type="text"
-              value={this.state.lastName}
-              onChange={(event) =>
-                this.handleChangeLastName(event)
-              }
-            />
-            <br />
-            <input
-              type="submit"
-              value="Submit"
-              onClick={(event) => this.handleSubmit(event)}
-            />
-          </form>
-        </div>
-      )
+      <div className="my-component">
+        <AddComponent updateField={this.updateField} />
+        <ChildComponent
+          name={this.state.name}
+          age={this.state.age}
+          address={this.state.address}
+          arrJobs={this.state.arrJobs}
+        />
+      </div>
     );
   }
 }
