@@ -1,19 +1,86 @@
 .list-todo-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  color: #000;
+
   .add-todo {
-    color: black;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 8px 14px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background: #0066d6;
+      }
+    }
   }
+
   .list-todo-content {
-    width: 400px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
     .todo-child {
-      height: 40px;
-      border-bottom: 1px solid grey;
-      margin: 10px;
-      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fafafa;
 
-      .button {
+      span {
+        flex: 1;
+      }
+
+      button {
         margin-left: 10px;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:first-of-type {
+          background: #ffc107; /* Edit */
+        }
+
+        &:nth-of-type(2) {
+          background: #dc3545; /* Delete */
+          color: white;
+        }
+
+        &:hover {
+          opacity: 0.85;
+        }
+      }
+
+      /* Khi đang edit */
+      input {
+        flex: 1;
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+
+      button:last-of-type {
+        background: #28a745; /* Save */
+        color: white;
       }
     }
   }
