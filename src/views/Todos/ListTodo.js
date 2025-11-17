@@ -16,6 +16,16 @@ class ListTodo extends React.Component {
       listTodos: [...this.state.listTodos, todo],
     });
   };
+  // delete task
+  handleDeleteTodo = (todo) => {
+    let currentTodos = this.state.listTodos;
+    currentTodos = currentTodos.filter(
+      (item) => item.id !== todo.id
+    );
+    this.setState({
+      listTodos: currentTodos,
+    });
+  };
 
   render() {
     let { listTodos } = this.state;
@@ -32,7 +42,14 @@ class ListTodo extends React.Component {
                     {index + 1} - {item.title}
                   </span>
                   <button className="button">Edit</button>
-                  <button className="button">Delete</button>
+                  <button
+                    className="button"
+                    onClick={() =>
+                      this.handleDeleteTodo(item)
+                    }
+                  >
+                    Delete
+                  </button>
                 </div>
               );
             })}
