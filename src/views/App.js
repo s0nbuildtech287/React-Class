@@ -4,6 +4,7 @@ import './App.scss';
 import ListTodo from './Todos/ListTodo';
 import MyComponent from './Example/MyComponent';
 import Home from './Example/Home';
+import ListUser from './Users/ListUser';
 
 import {
   BrowserRouter,
@@ -28,6 +29,7 @@ function App() {
               path="/about"
               element={<MyComponent />}
             />
+            <Route path="/user" element={<ListUser />} />
           </Routes>
         </header>
       </div>
