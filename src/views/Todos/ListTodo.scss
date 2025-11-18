@@ -3,7 +3,6 @@
   max-width: 500px;
   margin: 40px auto;
   color: #000;
-
   .add-todo {
     display: flex;
     gap: 10px;
@@ -28,6 +27,9 @@
         background: #0066d6;
       }
     }
+  }
+  h3 {
+    color: white;
   }
 
   .list-todo-content {

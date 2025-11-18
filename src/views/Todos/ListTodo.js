@@ -59,8 +59,8 @@ class ListTodo extends React.Component {
 
     return (
       <div className="list-todo-container">
+        <h3>App ToDo</h3>
         <AddTodo addNewTodoo={this.addNewTodo} />
-
         <div className="list-todo-content">
           {listTodos.map((item, index) => (
             <div className="todo-child" key={item.id}>
