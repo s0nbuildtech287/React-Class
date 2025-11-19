@@ -6,13 +6,10 @@ import MyComponent from './Example/MyComponent';
 import Home from './Example/Home';
 import ListUser from './Users/ListUser';
 
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Nav from './Nav/nav';
+import DetailUser from './Users/DetailUser';
 
 function App() {
   return (
@@ -25,11 +22,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/todo" element={<ListTodo />} />
-            <Route
-              path="/about"
-              element={<MyComponent />}
-            />
+            <Route path="/about" element={<MyComponent />} />
             <Route path="/user" element={<ListUser />} />
+            <Route path="/user/:id" element={<DetailUser />} />
           </Routes>
         </header>
       </div>
